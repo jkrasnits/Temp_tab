@@ -11,8 +11,11 @@ chrome.contextMenus.create({
 );
 
 function contextMenuClickHandler(info, tab){
-	chrome.tabs.executeScript(null, {file: "inject.js"}, function(data){
-		//var track = JSON.parse(data[0]);
-		//tracks.push(track);
+	chrome.tabs.executeScript(null, {file: "inject.js"}, function(tab){
+		tabs.push(tab);
+		for(var i = 0; i < tabs.length; i++){
+			console.log(tabs[i]);
+		}
+
 	});
 }
